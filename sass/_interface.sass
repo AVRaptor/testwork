@@ -28,6 +28,8 @@ img
   padding: 25px 45px
   background-color: $primary
   color: #ffffff
+  &:hover
+    cursor: pointer
   +bold
   &-fitting
     color: $primary
@@ -64,8 +66,10 @@ img
       margin-right: 20px
   
 @media (max-width: 576px)
-  .button-o
+  .button
     font-size: 10px
+    &-o
+      font-size: 10px
   .section
     padding: 60px 0
     &-title
