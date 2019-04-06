@@ -221,12 +221,71 @@ img {
   border: 1px solid #ddd;
 }
 
-.checkbox {
+input[type="checkbox"] {
   display: none;
 }
 
-.checkbox:checked + label:before {
+input[type="checkbox"]:checked + label:before {
   background-color: #507fe1;
+}
+
+.select {
+  height: 80px;
+  width: 100%;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.select:after {
+  content: '';
+  position: absolute;
+  z-index: 9;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: url("../img/caret.png") no-repeat center;
+  background-size: 100%;
+}
+
+.select:hover {
+  cursor: pointer;
+}
+
+.select_checked {
+  line-height: 80px;
+  padding-left: 30px;
+}
+
+.select__dropdown {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  display: none;
+}
+
+.select__dropdown_open {
+  display: block;
+}
+
+.select__option {
+  padding: 20px;
+}
+
+.select__option:hover {
+  background-color: #f1f1f1;
+}
+
+.form__select_open:after {
+  -webkit-transform: rotate(180deg) translateY(50%);
+          transform: rotate(180deg) translateY(50%);
 }
 
 .checkbox-label {
@@ -309,7 +368,7 @@ img {
 
 .menu {
   position: fixed;
-  z-index: 0;
+  z-index: 99;
   top: 80px;
   left: 0;
   width: 100%;
@@ -366,6 +425,14 @@ img {
   border-left: 1px solid rgba(81, 11, 186, 0.1);
   height: 80px;
   width: 70px;
+}
+
+.menu-button:hover {
+  cursor: pointer;
+}
+
+.menu-button:focus {
+  outline: none;
 }
 
 .menu-button__line {
@@ -638,6 +705,13 @@ img {
   position: relative;
   -webkit-box-shadow: 7px 5px 21px rgba(0, 0, 0, 0.1);
           box-shadow: 7px 5px 21px rgba(0, 0, 0, 0.1);
+  overflow-y: hidden;
+}
+
+.catalog-card:hover .catalog-card__buttons {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
 }
 
 .catalog-card__buttons {
@@ -647,6 +721,11 @@ img {
   position: absolute;
   bottom: 0;
   right: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
 }
 
 .catalog-card__button {
@@ -912,6 +991,7 @@ img {
   max-width: 640px;
   margin: auto;
   position: relative;
+  z-index: 98;
 }
 
 .before-slider-arrows {
